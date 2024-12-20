@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 @Component({
   selector: 'app-home',
   template: `
-  <div class="home_container">
+  <div id="home-section" class="home_container">
     <div class="home_container_image">
       <div>
         <img class="me-img" src="trustme.png" height="280" alt="Developer" />
@@ -13,7 +13,7 @@ import { Component } from "@angular/core";
       <h3 class="item" style="font-size: 30px;">I am GARBA MOUSTAPHA</h3>
       <h1>Full Stack Developer</h1>
       <p style="color: #9290C3; font-size: 20px;">Frontend, Backend, Mobile and Desktop</p>
-      <button class="item button">Contact Me</button>
+      <button class="item button" (click)="ContactMe()">Contact Me</button>
     </div>
   </div>
   `,
@@ -108,4 +108,11 @@ import { Component } from "@angular/core";
         }
     `]
 })
-export class HomeComponent {}
+export class HomeComponent {
+  ContactMe(){
+    const section = document.getElementById("contact-section");
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}

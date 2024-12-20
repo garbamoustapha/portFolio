@@ -18,9 +18,9 @@ import { TitleComponent } from "./title.component";
     TitleComponent
   ],
   template: `
-    <div class="get-in-touch-container gen_container">
+    <div id="contact-section" class="get-in-touch-container gen_container">
       <app-title [title]="'Get In Touch'"></app-title>
-      <div class="contact-info-form">
+      <div class="contact-info-form" >
         <div class="contact-info">
           <div class="info-item">
             <mat-icon>email</mat-icon>
@@ -28,7 +28,7 @@ import { TitleComponent } from "./title.component";
           </div>
           <div class="info-item">
             <i class="fab fa-github"></i>
-          <a href="https://www.linkedin.com/in/votre-profil" target="_blank">LinkedIn Profile</a>
+          <a href="https://www.linkedin.com/in/moustapha-garba-050b93264" target="_blank">LinkedIn Profile</a>
         </div>
           <div class="info-item">
             <mat-icon>phone</mat-icon>
@@ -39,7 +39,7 @@ import { TitleComponent } from "./title.component";
             <p>Niamey, Niger</p>
           </div>
         </div>
-        <form class="contact-form" (ngSubmit)="onSubmit()">
+        <form  class="contact-form" (ngSubmit)="onSubmit()">
           <mat-form-field class="full-width">
             <mat-label>Name</mat-label>
             <input matInput [(ngModel)]="formData.name" name="name" required />
@@ -60,7 +60,7 @@ import { TitleComponent } from "./title.component";
           </mat-form-field>
           <button class="button" style="width: 200px;" mat-raised-button color="primary" type="submit">Send Message</button>
         </form>
-        </div>
+      </div>
     </div>
   `,
   styles: [
@@ -70,19 +70,22 @@ import { TitleComponent } from "./title.component";
       }
       .contact-info-form{
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
       }
       .contact-info {
         flex-basis: 40%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: left;
         margin-bottom: 24px;
 
       }
 
       .contact-form{
-        flex-basis: 50%;
-
+        flex:2;
+        width: 100%;
       }
 
       h2 {

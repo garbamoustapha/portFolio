@@ -5,7 +5,7 @@ import { SkilsChartComponent } from "./skilsChart.Component";
   selector: "app-skills",
   imports: [TitleComponent, SkilsChartComponent],
   template: `
-    <div class="gen_container">
+    <div id="skills-section" class="gen_container">
       <app-title title="Skills"></app-title>
       <div class="skills_container">
           <skils-chart></skils-chart>    

@@ -15,7 +15,7 @@ import { MatButtonModule } from "@angular/material/button";
     MatButtonModule,
   ],
   template: `
-    <div class="gen_container">
+    <div id="experience-section" class="gen_container">
       <app-title title="Experience & Education"></app-title>
       <div class="experience_education_container">
         <!-- Experience Section -->
@@ -72,6 +72,7 @@ import { MatButtonModule } from "@angular/material/button";
       .experience_education_container {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         gap: 32px;
       }
       .experience_container,

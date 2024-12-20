@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
       @for(item of tabElements; track item.label) {
           <li      
           [class.active]="item === activeTab"
-          (click)="selectTab(item)"
+          (click)="scrollToSection(item.target)"
           >
             {{ item.label }}
           </li>
@@ -96,16 +96,21 @@ import { Component } from '@angular/core';
 })
 export class TabBarComponent {
   tabElements = [
-    { label: 'Home', content: 'Content for Tab 1' },
-    { label: 'About Me', content: 'Content for Tab 2' },
-    { label: 'Skills', content: 'Content for Tab 3' },
-    { label: 'Experience & Education', content: 'Content for Tab 4' },
-    { label: 'Contact', content: 'Content for Tab 5' },
+    { label: 'Home', target: 'home-section' },
+    { label: 'About Me', target: 'aboutme-section' },
+    { label: 'Skills', target: 'skills-section' },
+    { label: 'Experience & Education', target: 'experience-section' },
+    { label: 'Contact', target: 'contact-section' },
   ];
 
-  activeTab = this.tabElements[0]; // Définit le premier onglet actif par défaut.
+  activeTab = this.tabElements[0];
 
-  selectTab(tab: { label: string; content: string }) {
-    this.activeTab = tab;
+ scrollToSection(targetId: string): void {
+    const section = document.getElementById(targetId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    this.activeTab = this.tabElements.find(tab => tab.target === targetId) || this.activeTab;
   }
 }
+

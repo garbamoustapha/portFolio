@@ -107,32 +107,55 @@ export class SkilsChartComponent {
   }
 
   
-  skills =
-  [
+  skills = [
     {
-      name: "HTML",
-      level: 90
+      name: "C# / .NET",
+      level: 95, // Très utilisé dans vos projets, en particulier .NET MAUI, Blazor et SignalR.
     },
     {
-      name: "CSS",
-      level: 80
+      name: "PostgreSQL",
+      level: 90, // Base de données principale pour vos projets Blazor.
+    },
+    {
+      name: "Blazor",
+      level: 85, // Framework que vous utilisez activement pour des projets web et e-commerce.
     },
     {
       name: "JavaScript",
-      level: 70
+      level: 80, // Connaissances avancées pour les projets frontend.
+    },
+    {
+      name: "Entity Framework",
+      level: 80, // Utilisé pour la gestion des données dans vos projets avec PostgreSQL.
     },
     {
       name: "Angular",
-      level: 60
+      level: 75, // Framework utilisé pour des composants et des interfaces utilisateur.
     },
     {
-      name: "React",
-      level: 50
+      name: "HTML / CSS",
+      level: 75, // Solide compréhension pour créer des interfaces utilisateur.
     },
     {
-      name: "Vue",
-      level: 40
-    }
-  ]
-
+      name: "Java",
+      level: 70, // Utilisé dans des projets passés, notamment pour la surveillance des applications.
+    },
+    {
+      name: "SignalR",
+      level: 70, // Utilisé pour l'implémentation de flux vidéo et de communication en temps réel.
+    },
+    {
+      name: "AI / Weka",
+      level: 65, // Connaissances appliquées en intelligence artificielle et data mining.
+    },
+    {
+      name: "MAUI",
+      level: 80, // Expérience mentionnée, mais moins utilisée.
+    },
+    {
+      name: "Unity",
+      level: 40, // Débutant en développement de jeux.
+    },
+  ];
+  
 }
