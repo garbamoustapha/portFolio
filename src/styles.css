@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+.button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background:linear-gradient(90deg,rgb(228, 130, 19),rgb(236, 9, 9));
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover{
+  background:linear-gradient(90deg,rgb(236, 9, 9) ,rgb(228, 130, 19));
+  color: white;
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.text_color_deg{
+  background: linear-gradient(90deg,rgb(228, 130, 19),rgb(236, 9, 9));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gen_container{
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  justify-content: space-around;
+  background-color : #1B1A55;
+  margin-top: 30px;
+  border-radius: 10px;
+  color: white;
+  }
