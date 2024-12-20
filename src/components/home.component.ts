@@ -12,7 +12,7 @@ import { Component } from "@angular/core";
     </div>
     <div class="home_container_image">
       <div>
-        <img src="moi.png" height="280" style="background-color: #1B1A55;" alt="Developer"/>
+        <img  class="me-img" src="trustme.png" height="280" style="background-color: #1B1A55;" alt="Developer"/>
       </div>
     </div>
   </div>
@@ -51,6 +51,9 @@ import { Component } from "@angular/core";
           border-radius: 10px;
         }
 
+        .me-img{
+          transform :rotate(-0.1turn); 
+        }
         
     `]  
 })
