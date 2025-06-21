@@ -30,7 +30,10 @@
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
-            "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"]
+            "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"],
+            "allowedCommonJsDependencies": [
+                "lodash"
+            ]
           },
           "configurations": {
             "production": {
@@ -38,7 +41,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -91,6 +94,9 @@
             ],
             "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

@@ -15,7 +15,8 @@ import { Component } from "@angular/core";
       <p style="color: #9290C3; font-size: 20px;">Frontend, Backend, Mobile and Desktop</p>
       <button class="item button" (click)="ContactMe()">Contact Me</button>
     </div>
-  </div>
+  </div> 
+  
   `,
   styles: [`
         .home_container {
