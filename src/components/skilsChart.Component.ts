@@ -1,12 +1,12 @@
-import { Component, Input} from "@angular/core";
+import { Component, Input } from '@angular/core';
 import {
   ChartComponent,
   ApexAxisChartSeries,
   ApexChart,
   ApexXAxis,
   ApexTitleSubtitle,
-  ApexLegend
-} from "ng-apexcharts";
+  ApexLegend,
+} from 'ng-apexcharts';
 
 export type ChartOptions = {
   series: any;
@@ -15,21 +15,19 @@ export type ChartOptions = {
   title: ApexTitleSubtitle;
   labels: string[];
   responsive?: any;
-  plotOptions : any;
-  legend : ApexLegend
+  plotOptions: any;
+  legend: ApexLegend;
 };
 
 @Component({
-  selector: "skils-chart",
-  imports: [
-    ChartComponent,
-  ],
+  selector: 'skils-chart',
+  imports: [ChartComponent],
   template: `
-
-  <div class="skils_container">
-    @for (opt  of optionss; track $index) {
+    <div class="skils_container">
+      @for (opt of optionss; track $index) {
       <div class="chart_container">
-        <apx-chart class="chart"
+        <apx-chart
+          class="chart"
           [series]="opt.series"
           [labels]="opt.labels"
           [chart]="opt.chart"
@@ -37,30 +35,33 @@ export type ChartOptions = {
           [legend]="opt.legend"
         >
         </apx-chart>
-        <p>{{opt.labels.at(-1)}}</p>
+        <p>{{ opt.labels.at(-1) }}</p>
       </div>
-    }
-</div>
-  `,  styles: [`
+      }
+    </div>
+  `,
+  styles: [
+    `
       .skils_container {
         width: 100%;
         height: 100%;
       }
-      .skils_container, .chart_container {
+      .skils_container,
+      .chart_container {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         justify-content: center;
       }
       .chart_container {
-       flex-direction: column;
-       width: 150px;
-       justify-content: center;
-       margin: 10px;
-       padding: 10px;
-       background-color: rgba(146, 144, 195, 0.1);
-       border-radius: 10px;
-       transition: transform 0.3s ease;
+        flex-direction: column;
+        width: 150px;
+        justify-content: center;
+        margin: 10px;
+        padding: 10px;
+        background-color: rgba(146, 144, 195, 0.1);
+        border-radius: 10px;
+        transition: transform 0.3s ease;
       }
       .chart_container:hover {
         transform: translateY(-5px);
@@ -73,7 +74,7 @@ export type ChartOptions = {
         margin: 10px 0 0 0;
         font-size: 14px;
         font-weight: bold;
-        color: #9290C3;
+        color: #9290c3;
         text-align: center;
       }
 
@@ -139,74 +140,74 @@ export type ChartOptions = {
           font-size: 11px;
         }
       }
-    `]
+    `,
+  ],
 })
 export class SkilsChartComponent {
-  
-  optionss : ChartOptions[] = [];
-  
-  constructor(){
+  optionss: ChartOptions[] = [];
+
+  constructor() {
     this.skills.forEach((v) => {
-      var options : ChartOptions  = {
-        series:[100 - v.level, v.level],
+      var options: ChartOptions = {
+        series: [100 - v.level, v.level],
         chart: {
           height: 150,
-          type: "donut",
+          type: 'donut',
           zoom: {
-            enabled: false
-          }
+            enabled: false,
+          },
         },
         title: {
-          text: "Skills"
+          text: 'Skills',
         },
         xaxis: {},
-        labels: [ "None",v.name],
+        labels: ['None', v.name],
         responsive: [
           {
             breakpoint: 1200,
             options: {
               chart: {
                 height: 200,
-                width: 200
-              }
-            }
+                width: 200,
+              },
+            },
           },
           {
             breakpoint: 1199,
             options: {
               chart: {
                 height: 170,
-                width: 170
-              }
-            }
+                width: 170,
+              },
+            },
           },
           {
             breakpoint: 768,
             options: {
               chart: {
                 height: 140,
-                width: 140
-              }
-            }
+                width: 140,
+              },
+            },
           },
           {
             breakpoint: 480,
             options: {
               chart: {
                 height: 120,
-                width: 120
-              }
-            }
+                width: 120,
+              },
+            },
           },
           {
             breakpoint: 320,
             options: {
               chart: {
                 height: 100,
-                width: 100
-              }
-            }
-          }
+                width: 100,
+              },
+            },
+          },
         ],
         plotOptions: {
           pie: {
@@ -214,70 +215,68 @@ export class SkilsChartComponent {
               labels: {
                 show: true,
                 name: {},
-                value: {}
-              }
-            }
-          }
+                value: {},
+              },
+            },
+          },
         },
-        legend : {
-          show: false
-        }
-      }
-    
+        legend: {
+          show: false,
+        },
+      };
+
       this.optionss.push(options);
-    })
+    });
   }
 
-  
   skills = [
     {
-      name: "C# / .NET",
+      name: 'C# / .NET',
       level: 95, // Très utilisé dans vos projets, en particulier .NET MAUI, Blazor et SignalR.
     },
     {
-      name: "PostgreSQL",
+      name: 'PostgreSQL',
       level: 90, // Base de données principale pour vos projets Blazor.
     },
     {
-      name: "Blazor",
+      name: 'Blazor',
       level: 85, // Framework que vous utilisez activement pour des projets web et e-commerce.
     },
     {
-      name: "JavaScript",
+      name: 'JavaScript',
       level: 80, // Connaissances avancées pour les projets frontend.
     },
     {
-      name: "Entity Framework",
+      name: 'Entity Framework',
       level: 80, // Utilisé pour la gestion des données dans vos projets avec PostgreSQL.
     },
     {
-      name: "Angular",
+      name: 'Angular',
       level: 75, // Framework utilisé pour des composants et des interfaces utilisateur.
     },
     {
-      name: "HTML / CSS",
+      name: 'HTML / CSS',
       level: 75, // Solide compréhension pour créer des interfaces utilisateur.
     },
     {
-      name: "Java",
+      name: 'Java',
       level: 70, // Utilisé dans des projets passés, notamment pour la surveillance des applications.
     },
     {
-      name: "SignalR",
+      name: 'SignalR',
       level: 70, // Utilisé pour l'implémentation de flux vidéo et de communication en temps réel.
     },
     {
-      name: "AI / Weka",
+      name: 'AI / Weka',
       level: 65, // Connaissances appliquées en intelligence artificielle et data mining.
     },
     {
-      name: "MAUI",
+      name: 'MAUI',
       level: 80, // Expérience mentionnée, mais moins utilisée.
     },
     {
-      name: "Unity",
+      name: 'Unity',
       level: 40, // Débutant en développement de jeux.
     },
   ];
-  
 }
