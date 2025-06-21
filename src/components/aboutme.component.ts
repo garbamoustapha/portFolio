@@ -11,11 +11,8 @@ import { TitleComponent } from './title.component';
       <div>
         <app-title [title]="'About Me'"></app-title>
         <p style="color: #9290C3">
-          Hello! I'm Garba Moustapha, a dedicated software developer with a
-          passion for creating impactful solutions. I specialize in Full Stack
-          Development for desktop, web, and mobile applications. Beyond coding,
-          I enjoy exploring robotics, AI, and engaging in creative projects that
-          inspire innovation.
+         Hello! I'm Garba Moustapha, a dedicated software developer with a passion for creating impactful solutions. I specialize in Full Stack Development for desktop, web, and mobile applications. Beyond coding, I enjoy exploring robotics, AI, and engaging in creative projects that inspire innovation. I'm also passionate about games, both as a player and as a source of inspiration for interactive design and problem-solving.
+
         </p>
       </div>
 

@@ -176,6 +176,7 @@ export class TabBarComponent {
     { label: 'Home', target: 'home-section' },
     { label: 'About Me', target: 'aboutme-section' },
     { label: 'Skills', target: 'skills-section' },
+    { label: 'Hobbies', target: 'hobbies-section' },
     { label: 'Experience & Education', target: 'experience-section' },
     { label: 'Contact', target: 'contact-section' },
   ];

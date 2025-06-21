@@ -6,7 +6,9 @@ import { SkilsChartComponent } from './skilsChart.Component';
   imports: [TitleComponent, SkilsChartComponent],
   template: `
     <div id="skills-section" class="gen_container">
-      <app-title title="Skills"></app-title>
+      <div style="width: 100%">
+        <app-title title="Skills"></app-title>
+      </div>
       <div class="skills_container">
         <skils-chart></skils-chart>
       </div>
