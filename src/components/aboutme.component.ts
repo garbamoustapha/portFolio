@@ -61,6 +61,15 @@ import { TitleComponent } from './title.component';
                   >GarbaMoustapha</a
                 >
               </p>
+              <p class="item">
+                LinkedIn:
+                <a
+                  href="https://www.linkedin.com/in/moustapha-garba-050b93264"
+                  style="color: #9290C3;"
+                  target="_blank"
+                  >Moustapha Garba</a
+                >
+              </p>
             </div>
           </div>
         </div>

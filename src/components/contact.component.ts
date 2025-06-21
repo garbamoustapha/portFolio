@@ -27,7 +27,7 @@ import { TitleComponent } from './title.component';
             <p>{{ 'garbamoustapha0@gmail.com' }}</p>
           </div>
           <div class="info-item">
-            <i class="fab fa-github"></i>
+            <mat-icon>work</mat-icon>
             <a
               href="https://www.linkedin.com/in/moustapha-garba-050b93264"
               target="_blank"

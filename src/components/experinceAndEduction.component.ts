@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
       <div class="experience_education_container">
         <!-- Experience Section -->
         <div class="experience_container">
+          <h2>Experience</h2>
           <mat-stepper
             orientation="vertical"
             [linear]="false"
