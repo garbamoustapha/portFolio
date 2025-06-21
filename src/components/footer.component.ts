@@ -29,14 +29,36 @@ import { MatIconModule } from '@angular/material/icon';
               target="_blank"
               aria-label="LinkedIn"
             >
-              <mat-icon>linkedin</mat-icon>
+              <img
+                class="me-img"
+                src="linkedin.svg"
+                height="18"
+                alt="Developer"
+              />
             </a>
             <a
-              href="https://github.com/GarbaMoustapha"
+              href="https://github.com/garbamoustapha"
               target="_blank"
               aria-label="GitHub"
             >
-              <mat-icon>code</mat-icon>
+              <img
+                class="me-img"
+                src="github.svg"
+                height="18"
+                alt="Developer"
+              />
+            </a>
+            <a
+              href="https://www.codingame.com/profile/718cbf6f63c186f18f0dd3b09b6c2c2a8835854"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <img
+                class="me-img"
+                src="codingame.svg"
+                height="28"
+                alt="Developer"
+              />
             </a>
           </div>
         </div>
@@ -154,11 +176,15 @@ import { MatIconModule } from '@angular/material/icon';
         border-color: #9290c3;
         text-decoration: none;
       }
-
       .social-links mat-icon {
         font-size: 24px;
         color: #9290c3;
         transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
       }
 
       .social-links a:hover mat-icon {

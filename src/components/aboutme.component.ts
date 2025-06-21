@@ -182,7 +182,6 @@ import { TitleComponent } from './title.component';
         flex: 1;
         min-width: 250px;
       }
-
       .aboutme_container_data_experience {
         display: flex;
         flex-basis: 100%;
@@ -282,10 +281,17 @@ import { TitleComponent } from './title.component';
           min-width: auto;
           margin-left: 0 !important;
         }
-
         .aboutme_container_data_experience {
           justify-content: space-around;
           gap: 10px;
+          margin-top: 15px;
+        }
+
+        /* Force 2 cards per line on medium mobile screens */
+        .aboutme_container_data_experience about-me-experience-card {
+          flex: 0 1 calc(50% - 5px);
+          min-width: 140px;
+          max-width: 180px;
         }
 
         .button {
@@ -311,10 +317,17 @@ import { TitleComponent } from './title.component';
           font-size: 14px;
           margin-bottom: 8px;
         }
-
         .aboutme_container_data_experience {
-          flex-direction: column;
-          align-items: center;
+          gap: 8px;
+          margin-top: 12px;
+          justify-content: center;
+        }
+
+        /* Force 2 cards per line on small mobile screens */
+        .aboutme_container_data_experience about-me-experience-card {
+          flex: 0 1 calc(50% - 4px);
+          min-width: 120px;
+          max-width: 150px;
         }
 
         .button {
@@ -326,9 +339,7 @@ import { TitleComponent } from './title.component';
           font-size: 14px;
           line-height: 1.5;
         }
-      }
-
-      /* Very small screens */
+      } /* Very small screens */
       @media (max-width: 320px) {
         .aboutme_container {
           padding: 10px 8px;
@@ -349,6 +360,36 @@ import { TitleComponent } from './title.component';
 
         p {
           font-size: 12px;
+        }
+
+        .aboutme_container_data_experience {
+          gap: 6px;
+          margin-top: 10px;
+          justify-content: center;
+        }
+
+        /* Maintain 2 cards per line even on very small screens */
+        .aboutme_container_data_experience about-me-experience-card {
+          flex: 0 1 calc(50% - 3px);
+          min-width: 100px;
+          max-width: 130px;
+        }
+      }
+
+      /* Additional responsive rules for experience cards */
+      @media (max-width: 600px) {
+        .aboutme_container_data_experience {
+          justify-content: space-evenly;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .aboutme_container_data_experience {
+          justify-content: center;
+        }
+
+        .aboutme_container_data_experience about-me-experience-card {
+          margin: 3px;
         }
       }
     `,

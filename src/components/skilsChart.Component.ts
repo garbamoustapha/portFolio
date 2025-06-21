@@ -45,12 +45,16 @@ export type ChartOptions = {
       .skils_container {
         width: 100%;
         height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
       }
       .skils_container,
       .chart_container {
         display: flex;
         align-items: center;
-        flex-wrap: wrap;
         justify-content: center;
       }
       .chart_container {
@@ -101,11 +105,15 @@ export type ChartOptions = {
         .chart_container p {
           font-size: 15px;
         }
-      }
-
-      @media (max-width: 768px) {
+      } /* Mobile Medium (481px-768px) - Force 2 charts per line */
+      @media (max-width: 768px) and (min-width: 481px) {
+        .skils_container {
+          gap: 10px;
+        }
         .chart_container {
-          width: 160px;
+          width: calc(50% - 5px);
+          min-width: 140px;
+          max-width: 160px;
         }
         .chart {
           height: 140px;
@@ -115,9 +123,15 @@ export type ChartOptions = {
         }
       }
 
-      @media (max-width: 480px) {
+      /* Mobile Small (321px-480px) - Force 2 charts per line */
+      @media (max-width: 480px) and (min-width: 321px) {
+        .skils_container {
+          gap: 8px;
+        }
         .chart_container {
-          width: 140px;
+          width: calc(50% - 4px);
+          min-width: 120px;
+          max-width: 140px;
           margin: 5px;
         }
         .chart {
@@ -128,9 +142,15 @@ export type ChartOptions = {
         }
       }
 
+      /* Very small screens (≤320px) - Still maintain 2 charts */
       @media (max-width: 320px) {
+        .skils_container {
+          gap: 6px;
+        }
         .chart_container {
-          width: 120px;
+          width: calc(50% - 3px);
+          min-width: 100px;
+          max-width: 120px;
           margin: 3px;
         }
         .chart {

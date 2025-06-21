@@ -27,7 +27,12 @@ import { TitleComponent } from './title.component';
             <p>{{ 'garbamoustapha0@gmail.com' }}</p>
           </div>
           <div class="info-item">
-            <mat-icon>work</mat-icon>
+            <img
+              class="me-img"
+              src="linkedin.svg"
+              height="18"
+              alt="Developer"
+            />
             <a
               href="https://www.linkedin.com/in/moustapha-garba-050b93264"
               target="_blank"
