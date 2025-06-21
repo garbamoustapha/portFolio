@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { TitleComponent } from './title.component';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -24,7 +25,18 @@ import { TitleComponent } from './title.component';
         <div class="contact-info">
           <div class="info-item">
             <mat-icon>email</mat-icon>
-            <p>{{ 'garbamoustapha0@gmail.com' }}</p>
+            <div class="email-options">
+              <a href="mailto:garbamoustapha0@gmail.com" class="email-link">
+                {{ 'garbamoustapha0@gmail.com' }}
+              </a>
+              <button
+                class="email-client-btn"
+                (click)="openEmailClient()"
+                title="Open in your email app"
+              >
+                📧 Open Email App
+              </button>
+            </div>
           </div>
           <div class="info-item">
             <img
@@ -80,8 +92,9 @@ import { TitleComponent } from './title.component';
             mat-raised-button
             color="primary"
             type="submit"
+            [disabled]="isLoading"
           >
-            Send Message
+            {{ isLoading ? 'Sending...' : 'Send Message' }}
           </button>
         </form>
       </div>
@@ -187,7 +200,6 @@ import { TitleComponent } from './title.component';
         font-size: 24px;
         min-width: 24px;
       }
-
       .info-item p,
       .info-item a {
         margin: 0;
@@ -196,6 +208,43 @@ import { TitleComponent } from './title.component';
         font-weight: 500;
         transition: color 0.3s ease;
       }
+      .info-item .email-link {
+        cursor: pointer;
+      }
+
+      .email-options {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+      }
+
+      .email-client-btn {
+        background: linear-gradient(90deg, #1976d2, #42a5f5);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        align-self: flex-start;
+      }
+
+      .email-client-btn:hover {
+        background: linear-gradient(90deg, #42a5f5, #1976d2);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .email-client-btn:active {
+        transform: translateY(0);
+      }
+
       .info-item a:hover {
         color: #1976d2;
         text-decoration: underline;
@@ -275,9 +324,20 @@ import { TitleComponent } from './title.component';
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
         align-self: center;
         width: 200px !important;
+        position: relative;
       }
 
-      .button:hover {
+      .button:disabled {
+        opacity: 0.7 !important;
+        cursor: not-allowed !important;
+        background: linear-gradient(
+          90deg,
+          rgba(228, 130, 19, 0.6),
+          rgba(236, 9, 9, 0.6)
+        ) !important;
+      }
+
+      .button:hover:not(:disabled) {
         transform: translateY(-2px) !important;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3) !important;
         background: linear-gradient(
@@ -327,10 +387,14 @@ import { TitleComponent } from './title.component';
         .info-item i {
           font-size: 28px;
         }
-
         .info-item p,
         .info-item a {
           font-size: 16px;
+        }
+
+        .email-client-btn {
+          font-size: 13px;
+          padding: 10px 15px;
         }
 
         .button {
@@ -374,10 +438,14 @@ import { TitleComponent } from './title.component';
         .info-item i {
           font-size: 26px;
         }
-
         .info-item p,
         .info-item a {
           font-size: 15px;
+        }
+
+        .email-client-btn {
+          font-size: 12px;
+          padding: 9px 13px;
         }
 
         .button {
@@ -425,10 +493,14 @@ import { TitleComponent } from './title.component';
         .info-item i {
           font-size: 24px;
         }
-
         .info-item p,
         .info-item a {
           font-size: 14px;
+        }
+
+        .email-client-btn {
+          font-size: 11px;
+          padding: 8px 12px;
         }
 
         .button {
@@ -468,10 +540,14 @@ import { TitleComponent } from './title.component';
         .info-item i {
           font-size: 20px;
         }
-
         .info-item p,
         .info-item a {
           font-size: 13px;
+        }
+
+        .email-client-btn {
+          font-size: 10px;
+          padding: 6px 10px;
         }
 
         .button {
@@ -479,9 +555,7 @@ import { TitleComponent } from './title.component';
           padding: 10px 20px !important;
           max-width: 250px !important;
         }
-      }
-
-      /* Very small screens (≤320px) */
+      } /* Very small screens (≤320px) */
       @media (max-width: 320px) {
         .get-in-touch-container {
           padding: 15px 10px;
@@ -509,6 +583,11 @@ import { TitleComponent } from './title.component';
         .info-item p,
         .info-item a {
           font-size: 12px;
+        }
+
+        .email-client-btn {
+          font-size: 9px;
+          padding: 5px 8px;
         }
 
         .button {
@@ -554,10 +633,14 @@ import { TitleComponent } from './title.component';
         .info-item i {
           font-size: 18px;
         }
-
         .info-item p,
         .info-item a {
           font-size: 12px;
+        }
+
+        .email-client-btn {
+          font-size: 9px;
+          padding: 4px 6px;
         }
 
         .button {
@@ -640,9 +723,107 @@ export class ContactComponent {
     message: '',
   };
 
-  onSubmit() {
-    console.log('Form Submitted', this.formData);
-    // Vous pouvez ajouter ici un appel à un service pour envoyer les données
-    alert("Message sent! We'll get back to you soon.");
+  isLoading = false; // EmailJS configuration
+  // To set up EmailJS:
+  // 1. Go to https://www.emailjs.com/ and create an account
+  // 2. Create a new service (Gmail, Outlook, etc.)
+  // 3. Create an email template with these variables:
+  //    - {{from_name}} - Sender's name
+  //    - {{from_email}} - Sender's email
+  //    - {{message}} - Message content
+  //    - {{to_name}} - Your name (Garba Moustapha)
+  //    - {{reply_to}} - Sender's email for replies
+  //    - {{subject}} - Dynamic subject line
+  //    - {{current_date}} - When the message was sent
+  // 4. Get your Service ID, Template ID, and Public Key
+  // 5. Replace the placeholder values below with your actual EmailJS credentials
+  private readonly EMAIL_SERVICE_ID = 'service_ykt4l7g'; // Replace with your EmailJS service ID
+  private readonly EMAIL_TEMPLATE_ID = 'template_le7efxc'; // Replace with your EmailJS template ID
+  private readonly EMAIL_PUBLIC_KEY = 'XaVzePubJOVleBsQK'; // Replace with your EmailJS public key
+
+  constructor() {
+    // Initialize EmailJS
+    emailjs.init(this.EMAIL_PUBLIC_KEY);
+  }
+  async onSubmit() {
+    if (!this.formData.name || !this.formData.email || !this.formData.message) {
+      alert('📝 Please fill in all fields to send your message.');
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.formData.email)) {
+      alert('📧 Please enter a valid email address.');
+      return;
+    }
+
+    this.isLoading = true;
+
+    try {
+      // Prepare template parameters with more user-friendly content
+      const templateParams = {
+        from_name: this.formData.name,
+        from_email: this.formData.email,
+        message: this.formData.message,
+        to_name: 'Garba Moustapha',
+        reply_to: this.formData.email,
+        subject: `New Contact Form Message from ${this.formData.name}`,
+        current_date: new Date().toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        }),
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        this.EMAIL_SERVICE_ID,
+        this.EMAIL_TEMPLATE_ID,
+        templateParams
+      );
+
+      // Success message with more personality
+      alert(
+        `🎉 Thank you ${this.formData.name}! Your message has been sent successfully. I'll get back to you as soon as possible at ${this.formData.email}.`
+      );
+
+      // Reset form
+      this.formData = {
+        name: '',
+        email: '',
+        message: '',
+      };
+    } catch (error) {
+      console.error('Error sending email:', error);
+
+      // More helpful error message
+      alert(
+        `😕 Oops! There was an issue sending your message. Please try again in a few minutes, or feel free to reach out directly at garbamoustapha0@gmail.com. Sorry for the inconvenience!`
+      );
+    } finally {
+      this.isLoading = false;
+    }
+  }
+  // Alternative method to open default email client with a friendly pre-filled message
+  openEmailClient() {
+    const subject = '👋 Hello from your Portfolio Website!';
+    const body = `Hi Garba Moustapha,
+
+I visited your portfolio website and would love to get in touch with you!
+
+[Please write your message here]
+
+Looking forward to hearing from you!
+
+Best regards,
+[Your Name]`;
+
+    const mailtoUrl = `mailto:garbamoustapha0@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoUrl, '_blank');
   }
 }
