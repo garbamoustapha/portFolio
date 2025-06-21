@@ -41,8 +41,7 @@ export type ChartOptions = {
       </div>
     }
 </div>
-  `,
-  styles: [`
+  `,  styles: [`
       .skils_container {
         width: 100%;
         height: 100%;
@@ -58,10 +57,87 @@ export type ChartOptions = {
        width: 150px;
        justify-content: center;
        margin: 10px;
+       padding: 10px;
+       background-color: rgba(146, 144, 195, 0.1);
+       border-radius: 10px;
+       transition: transform 0.3s ease;
+      }
+      .chart_container:hover {
+        transform: translateY(-5px);
       }
       .chart {
         width: 100%;
         height: 150px;
+      }
+      .chart_container p {
+        margin: 10px 0 0 0;
+        font-size: 14px;
+        font-weight: bold;
+        color: #9290C3;
+        text-align: center;
+      }
+
+      /* Responsive styles */
+      @media (min-width: 1200px) {
+        .chart_container {
+          width: 220px;
+        }
+        .chart {
+          height: 200px;
+        }
+        .chart_container p {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 1199px) and (min-width: 769px) {
+        .chart_container {
+          width: 190px;
+        }
+        .chart {
+          height: 170px;
+        }
+        .chart_container p {
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .chart_container {
+          width: 160px;
+        }
+        .chart {
+          height: 140px;
+        }
+        .chart_container p {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .chart_container {
+          width: 140px;
+          margin: 5px;
+        }
+        .chart {
+          height: 120px;
+        }
+        .chart_container p {
+          font-size: 12px;
+        }
+      }
+
+      @media (max-width: 320px) {
+        .chart_container {
+          width: 120px;
+          margin: 3px;
+        }
+        .chart {
+          height: 100px;
+        }
+        .chart_container p {
+          font-size: 11px;
+        }
       }
     `]
 })
@@ -69,7 +145,6 @@ export class SkilsChartComponent {
   
   optionss : ChartOptions[] = [];
   
-
   constructor(){
     this.skills.forEach((v) => {
       var options : ChartOptions  = {
@@ -86,6 +161,53 @@ export class SkilsChartComponent {
         },
         xaxis: {},
         labels: [ "None",v.name],
+        responsive: [
+          {
+            breakpoint: 1200,
+            options: {
+              chart: {
+                height: 200,
+                width: 200
+              }
+            }
+          },
+          {
+            breakpoint: 1199,
+            options: {
+              chart: {
+                height: 170,
+                width: 170
+              }
+            }
+          },
+          {
+            breakpoint: 768,
+            options: {
+              chart: {
+                height: 140,
+                width: 140
+              }
+            }
+          },
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                height: 120,
+                width: 120
+              }
+            }
+          },
+          {
+            breakpoint: 320,
+            options: {
+              chart: {
+                height: 100,
+                width: 100
+              }
+            }
+          }
+        ],
         plotOptions: {
           pie: {
             donut: {
