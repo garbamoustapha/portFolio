@@ -104,7 +104,7 @@ import emailjs from '@emailjs/browser';
     `
       .get-in-touch-container {
         flex-direction: column;
-        background-color: #1b1a55;
+        background-color: #1b1a552a;
         margin-top: 30px;
         border-radius: 15px;
         color: white;

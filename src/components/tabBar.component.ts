@@ -31,7 +31,7 @@ import { Component } from '@angular/core';
   styles: [
     `
       .tab-bar {
-        background-color: #1b1a55;
+  background-color: #1b1a552A;
         border-radius: 10px;
         display: flex;
         flex-direction: column;

@@ -1,28 +1,360 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>PortFolio</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <style>
-    ::after, ::before, * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #070F2B;
+  <head>
+    <meta charset="utf-8" />
+    <title>🎮 Garba Moustapha - Gamer Dev Portfolio</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta
+      name="description"
+      content="Garba Moustapha - Full-Stack Developer & Gaming Enthusiast. Explore my cyberpunk-inspired portfolio with cutting-edge web technologies."
+    />
+    <meta
+      name="keywords"
+      content="developer, gaming, portfolio, web development, three.js, cyberpunk, gamer"
+    />
+
+    <style>
+      ::after,
+      ::before,
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Orbitron", "Roboto", monospace;
+        background: radial-gradient(
+            ellipse at top,
+            #0a0f1c 0%,
+            #070b10 50%,
+            #000000 100%
+          ),
+          linear-gradient(45deg, #001122 0%, #000811 50%, #000000 100%);
+        background-attachment: fixed;
         padding: 15px 30px;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body class="mat-typography">
-  <app-root></app-root>
-</body>
+        color: #00ff7f;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Gaming cursor */
+      body * {
+        cursor: crosshair;
+      }
+
+      /* Loading screen for gaming effect */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: fadeOut 2s ease-in-out 1s forwards;
+      }
+
+      .loading-text {
+        color: #00ff7f;
+        font-family: "Orbitron", monospace;
+        font-size: 2rem;
+        text-shadow: 0 0 20px #00ff7f;
+        animation: glow-pulse 1s ease-in-out infinite alternate;
+      }
+
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      @keyframes glow-pulse {
+        from {
+          text-shadow: 0 0 20px #00ff7f, 0 0 30px #00ff7f, 0 0 40px #00ff7f;
+        }
+        to {
+          text-shadow: 0 0 10px #00ff7f, 0 0 20px #00ff7f, 0 0 30px #00ff7f;
+        }
+      }
+
+      /* Gaming scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #000;
+        border-left: 2px solid #00ff7f;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #00ff7f, #007f3f);
+        border-radius: 6px;
+        box-shadow: inset 0 0 6px rgba(0, 255, 127, 0.3);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #00ff7f, #00bf5f);
+        box-shadow: inset 0 0 10px rgba(0, 255, 127, 0.5);
+      }
+
+      /* Gaming selection */
+      ::selection {
+        background: rgba(0, 255, 127, 0.3);
+        color: #fff;
+        text-shadow: 0 0 10px #00ff7f;
+      }
+
+      /* Neon border effect for focused elements */
+      *:focus {
+        outline: 2px solid #00ff7f !important;
+        box-shadow: 0 0 10px rgba(0, 255, 127, 0.5) !important;
+      }
+
+      /* Gaming link styles */
+      a {
+        color: #00ff7f;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        text-shadow: 0 0 5px rgba(0, 255, 127, 0.3);
+      }
+
+      a:hover {
+        color: #ffffff;
+        text-shadow: 0 0 15px #00ff7f, 0 0 25px #00ff7f;
+        transform: scale(1.05);
+      }
+
+      /* Gaming button styles */
+      button {
+        font-family: "Orbitron", monospace !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #00ff7f;
+        background: rgba(0, 255, 127, 0.1);
+        color: #00ff7f;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 255, 127, 0.3),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      button:hover::before {
+        left: 100%;
+      }
+
+      button:hover {
+        background: rgba(0, 255, 127, 0.2);
+        box-shadow: 0 0 20px rgba(0, 255, 127, 0.5);
+        transform: translateY(-2px);
+      }
+
+      /* Gaming input styles */
+      input,
+      textarea {
+        font-family: "Orbitron", monospace;
+        background: rgba(0, 255, 127, 0.05);
+        border: 1px solid #00ff7f;
+        color: #00ff7f;
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        background: rgba(0, 255, 127, 0.1);
+        box-shadow: 0 0 15px rgba(0, 255, 127, 0.3);
+      }
+
+      /* Gaming card hover effects */
+      .mat-mdc-card,
+      .card,
+      .info-item,
+      .hobby_card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(0, 255, 127, 0.3) !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .mat-mdc-card::before,
+      .card::before,
+      .info-item::before,
+      .hobby_card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(0, 255, 127, 0.1),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      .mat-mdc-card:hover::before,
+      .card:hover::before,
+      .info-item:hover::before,
+      .hobby_card:hover::before {
+        opacity: 1;
+      }
+
+      .mat-mdc-card:hover,
+      .card:hover,
+      .info-item:hover,
+      .hobby_card:hover {
+        border-color: #00ff7f !important;
+        box-shadow: 0 0 25px rgba(0, 255, 127, 0.3) !important;
+        transform: translateY(-5px) !important;
+      }
+
+      /* Gaming typography effects */
+      h1,
+      h2,
+      h3 {
+        font-family: "Orbitron", monospace;
+        text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+        color: #00ff7f;
+      }
+
+      /* Cyberpunk glitch effect for titles */
+      .glitch-effect {
+        animation: glitch 2s linear infinite;
+      }
+
+      @keyframes glitch {
+        2%,
+        64% {
+          transform: translate(2px, 0) skew(0deg);
+        }
+        4%,
+        60% {
+          transform: translate(-2px, 0) skew(0deg);
+        }
+        62% {
+          transform: translate(0, 0) skew(5deg);
+        }
+      }
+
+      /* Matrix rain effect keyframes */
+      @keyframes matrix-rain {
+        0% {
+          transform: translateY(-100vh);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+
+      /* Gaming performance optimization */
+      * {
+        will-change: transform;
+      }
+
+      /* High contrast mode for accessibility */
+      @media (prefers-contrast: high) {
+        body {
+          background: #000;
+          color: #00ff00;
+        }
+
+        * {
+          border-color: #00ff00 !important;
+        }
+      }
+
+      /* Reduced motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Background gaming optimizations */
+      app-root {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+      }
+
+      /* Ensure background components render properly */
+      app-gamer-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* Optimize performance for animations */
+      canvas {
+        image-rendering: optimizeSpeed;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+      }
+    </style>
+
+    <!-- Gaming fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Debug script for gaming background -->
+    <script src="assets/debug-gaming.js" defer></script>
+  </head>
+  <body class="mat-typography">
+    <!-- Gaming loading screen -->
+    <div class="loading-screen">
+      <div class="loading-text glitch-effect">🎮 LOADING PORTFOLIO...</div>
+    </div>
+
+    <app-root></app-root>
+  </body>
 </html>

@@ -8,6 +8,9 @@ import { HobbiesComponent } from '../components/hobbies.component';
 import { ExperinceAndEductionComponent } from '../components/experinceAndEduction.component';
 import { ContactComponent } from '../components/contact.component';
 import { FooterComponent } from '../components/footer.component';
+import { GamerBackgroundComponent } from '../components/gamer-background.component';
+import { SectionDividerComponent } from '../components/section-divider.component';
+import { LoadingManagerComponent } from '../components/loading-manager.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +24,9 @@ import { FooterComponent } from '../components/footer.component';
     ExperinceAndEductionComponent,
     ContactComponent,
     FooterComponent,
+    GamerBackgroundComponent,
+    SectionDividerComponent,
+    LoadingManagerComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

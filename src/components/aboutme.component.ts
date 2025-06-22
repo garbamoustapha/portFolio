@@ -123,7 +123,7 @@ import { TitleComponent } from './title.component';
         flex-direction: column;
         width: 100%;
         padding: 20px;
-        background-color: #1b1a55;
+        background-color: #1b1a552A;
         margin-top: 30px;
         border-radius: 10px;
         color: white;
