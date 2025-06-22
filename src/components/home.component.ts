@@ -274,7 +274,7 @@ import { Component } from '@angular/core';
         max-width: 280px;
         height: auto;
         border-radius: 15px;
-        background-color: #1b1a55;
+        background-color:rgb(6, 6, 37);
         display: block;
         transition: all 0.5s ease;
         filter: brightness(1.1) contrast(1.1) saturate(1.2);
