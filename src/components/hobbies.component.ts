@@ -53,8 +53,7 @@ import { CommonModule } from '@angular/common';
         align-items: start;
         width: 100%;
         justify-content: center;
-      }
-      .hobby_card {
+      }      .hobby_card {
         display: flex;
         align-items: flex-start;
         width: 100%;
@@ -219,9 +218,7 @@ import { CommonModule } from '@angular/common';
           min-width: 60px;
           height: 60px;
         }
-      }
-
-      /* Small tablets (481px-768px) - 2 columns */
+      }      /* Small tablets (481px-768px) - 2 columns */
       @media (max-width: 768px) and (min-width: 481px) {
         .gen_container {
           padding: 35px 15px;
@@ -235,10 +232,23 @@ import { CommonModule } from '@angular/common';
         .hobby_card {
           padding: 18px;
           max-width: none;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hobby_card .hobby_icon {
+          margin-right: 0;
+          margin-bottom: 10px;
+          align-self: center;
+        }
+
+        .hobby_content {
+          width: 100%;
         }
 
         .hobby_title {
           font-size: 17px;
+          margin-bottom: 12px;
         }
 
         .hobby_description {
@@ -249,11 +259,8 @@ import { CommonModule } from '@angular/common';
           font-size: 2.2rem;
           min-width: 55px;
           height: 55px;
-          margin-right: 12px;
         }
-      }
-
-      /* Mobile Large (381px-480px) - 2 columns */
+      }      /* Mobile Large (381px-480px) - 2 columns */
       @media (max-width: 480px) and (min-width: 381px) {
         .gen_container {
           padding: 30px 12px;
@@ -267,10 +274,23 @@ import { CommonModule } from '@angular/common';
         .hobby_card {
           padding: 15px;
           max-width: none;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hobby_card .hobby_icon {
+          margin-right: 0;
+          margin-bottom: 8px;
+          align-self: center;
+        }
+
+        .hobby_content {
+          width: 100%;
         }
 
         .hobby_title {
           font-size: 15px;
+          margin-bottom: 10px;
         }
 
         .hobby_description {
@@ -281,11 +301,8 @@ import { CommonModule } from '@angular/common';
           font-size: 1.9rem;
           min-width: 45px;
           height: 45px;
-          margin-right: 10px;
         }
-      }
-
-      /* Mobile Medium (321px-380px) - 1 column */
+      }      /* Mobile Medium (321px-380px) - 1 column */
       @media (max-width: 380px) and (min-width: 321px) {
         .gen_container {
           padding: 25px 10px;
@@ -299,10 +316,23 @@ import { CommonModule } from '@angular/common';
         .hobby_card {
           padding: 15px;
           max-width: none;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hobby_card .hobby_icon {
+          margin-right: 0;
+          margin-bottom: 8px;
+          align-self: center;
+        }
+
+        .hobby_content {
+          width: 100%;
         }
 
         .hobby_title {
           font-size: 16px;
+          margin-bottom: 10px;
         }
 
         .hobby_description {
@@ -313,11 +343,8 @@ import { CommonModule } from '@angular/common';
           font-size: 2rem;
           min-width: 50px;
           height: 50px;
-          margin-right: 10px;
         }
-      }
-
-      /* Mobile Small (≤320px) - 1 column */
+      }      /* Mobile Small (≤320px) - 1 column */
       @media (max-width: 320px) {
         .gen_container {
           padding: 20px 8px;
@@ -331,10 +358,23 @@ import { CommonModule } from '@angular/common';
         .hobby_card {
           padding: 12px;
           max-width: none;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hobby_card .hobby_icon {
+          margin-right: 0;
+          margin-bottom: 8px;
+          align-self: center;
+        }
+
+        .hobby_content {
+          width: 100%;
         }
 
         .hobby_title {
           font-size: 15px;
+          margin-bottom: 8px;
         }
 
         .hobby_description {
@@ -345,7 +385,6 @@ import { CommonModule } from '@angular/common';
           font-size: 1.8rem;
           min-width: 45px;
           height: 45px;
-          margin-right: 8px;
         }
       }
     `,
