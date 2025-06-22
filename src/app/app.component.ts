@@ -11,10 +11,10 @@ import { FooterComponent } from '../components/footer.component';
 import { GamerBackgroundComponent } from '../components/gamer-background.component';
 import { SectionDividerComponent } from '../components/section-divider.component';
 import { LoadingManagerComponent } from '../components/loading-manager.component';
+import { ToolsTechnologiesComponent } from '../components/tools-technologies.component';
 
 @Component({
-  selector: 'app-root',
-  imports: [
+  selector: 'app-root',  imports: [
     RouterOutlet,
     TabBarComponent,
     HomeComponent,
@@ -27,6 +27,7 @@ import { LoadingManagerComponent } from '../components/loading-manager.component
     GamerBackgroundComponent,
     SectionDividerComponent,
     LoadingManagerComponent,
+    ToolsTechnologiesComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

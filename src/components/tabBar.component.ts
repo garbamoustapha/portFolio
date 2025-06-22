@@ -171,11 +171,11 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class TabBarComponent {
-  tabElements = [
+export class TabBarComponent {  tabElements = [
     { label: 'Home', target: 'home-section' },
     { label: 'About Me', target: 'aboutme-section' },
     { label: 'Skills', target: 'skills-section' },
+    { label: 'Tools', target: 'tools-section' },
     { label: 'Hobbies', target: 'hobbies-section' },
     { label: 'Experience & Education', target: 'experience-section' },
     { label: 'Contact', target: 'contact-section' },
