@@ -761,11 +761,20 @@ export class ContactComponent {
     this.isLoading = true;
 
     try {
+      const masage = `Hi Garba Moustapha,
+
+I visited your portfolio website and would love to get in touch with you!
+
+${this.formData.message}
+Looking forward to hearing from you!
+
+Best regards,
+${this.formData.name} at ${this.formData.email}`;
       // Prepare template parameters with more user-friendly content
       const templateParams = {
         from_name: this.formData.name,
         from_email: this.formData.email,
-        message: this.formData.message,
+        message: masage,
         to_name: 'Garba Moustapha',
         reply_to: this.formData.email,
         subject: `New Contact Form Message from ${this.formData.name}`,
