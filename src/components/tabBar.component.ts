@@ -31,7 +31,7 @@ import { Component } from '@angular/core';
   styles: [
     `
       .tab-bar {
-  background-color: #1b1a552A;
+        background-color: #1b1a552a;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -171,7 +171,8 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class TabBarComponent {  tabElements = [
+export class TabBarComponent {
+  tabElements = [
     { label: 'Home', target: 'home-section' },
     { label: 'About Me', target: 'aboutme-section' },
     { label: 'Skills', target: 'skills-section' },

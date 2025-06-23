@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-tools-technologies',
   imports: [TitleComponent, CommonModule],
   template: `
-    <div id="tools-section" class="gen_container">      <div class="tools_title">
+    <div id="tools-section" class="gen_container">
+      <div class="tools_title">
         <app-title title="Tools & Complementary Technologies"></app-title>
       </div>
       <div class="tools_container">
@@ -18,11 +19,11 @@ import { CommonModule } from '@angular/common';
             </div>
             <div class="tool_progress_container">
               <div class="tool_progress_bar">
-                <div 
-                  class="tool_progress_fill" 
+                <div
+                  class="tool_progress_fill"
                   [style.width.%]="tool.level"
-                  [attr.data-level]="tool.level">
-                </div>
+                  [attr.data-level]="tool.level"
+                ></div>
               </div>
             </div>
             <p class="tool_description">{{ tool.description }}</p>
@@ -73,8 +74,7 @@ import { CommonModule } from '@angular/common';
         background: rgba(27, 26, 85, 0.1);
         border-radius: 20px;
         border: 1px solid rgba(0, 255, 127, 0.2);
-        box-shadow: 
-          0 8px 32px rgba(0, 255, 127, 0.1),
+        box-shadow: 0 8px 32px rgba(0, 255, 127, 0.1),
           0 2px 8px rgba(0, 0, 0, 0.05);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
@@ -96,10 +96,8 @@ import { CommonModule } from '@angular/common';
 
       .tool_card:hover {
         transform: translateY(-8px) scale(1.02);
-        box-shadow: 
-          0 16px 48px rgba(0, 255, 127, 0.2),
-          0 8px 24px rgba(138, 43, 226, 0.1),
-          0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 16px 48px rgba(0, 255, 127, 0.2),
+          0 8px 24px rgba(138, 43, 226, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1);
         border-color: rgba(0, 255, 127, 0.4);
       }
 
@@ -164,7 +162,12 @@ import { CommonModule } from '@angular/common';
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
         animation: shimmer 2s infinite;
       }
 
@@ -186,16 +189,16 @@ import { CommonModule } from '@angular/common';
       }
 
       /* High level styling */
-      .tool_card:has(.tool_progress_fill[data-level="85"]) .tool_level,
-      .tool_card:has(.tool_progress_fill[data-level="80"]) .tool_level {
+      .tool_card:has(.tool_progress_fill[data-level='85']) .tool_level,
+      .tool_card:has(.tool_progress_fill[data-level='80']) .tool_level {
         color: #00ff7f;
         background: rgba(0, 255, 127, 0.15);
         border-color: rgba(0, 255, 127, 0.4);
       }
 
       /* Medium level styling */
-      .tool_card:has(.tool_progress_fill[data-level="75"]) .tool_level,
-      .tool_card:has(.tool_progress_fill[data-level="70"]) .tool_level {
+      .tool_card:has(.tool_progress_fill[data-level='75']) .tool_level,
+      .tool_card:has(.tool_progress_fill[data-level='70']) .tool_level {
         color: #00bfff;
         background: rgba(0, 191, 255, 0.15);
         border-color: rgba(0, 191, 255, 0.4);
@@ -357,36 +360,40 @@ import { CommonModule } from '@angular/common';
     `,
   ],
 })
-export class ToolsTechnologiesComponent {  tools = [
+export class ToolsTechnologiesComponent {
+  tools = [
     {
       name: 'Git / GitHub / GitLab',
       level: 85,
-      description: 'Version control, branch management, merge, CI/CD and team collaboration.'
+      description:
+        'Version control, branch management, merge, CI/CD and team collaboration.',
     },
     {
       name: 'Linux / Bash',
       level: 75,
-      description: 'Application deployment, automation scripts, SSH administration.'
+      description:
+        'Application deployment, automation scripts, SSH administration.',
     },
     {
       name: 'Docker / Docker Compose',
       level: 70,
-      description: 'Containerization of development and production environments.'
+      description:
+        'Containerization of development and production environments.',
     },
     {
       name: 'Swagger / Postman',
       level: 80,
-      description: 'REST API testing and documentation, endpoint validation.'
+      description: 'REST API testing and documentation, endpoint validation.',
     },
     {
       name: 'JWT / SMTP / OAuth',
       level: 75,
-      description: 'Email sending, contact form integration, authentication.'
+      description: 'Email sending, contact form integration, authentication.',
     },
     {
       name: 'SQL Server / MySQL',
       level: 70,
-      description: 'Relational databases, complex queries, optimization.'
-    }
+      description: 'Relational databases, complex queries, optimization.',
+    },
   ];
 }

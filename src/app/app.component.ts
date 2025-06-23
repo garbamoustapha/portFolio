@@ -14,7 +14,8 @@ import { LoadingManagerComponent } from '../components/loading-manager.component
 import { ToolsTechnologiesComponent } from '../components/tools-technologies.component';
 
 @Component({
-  selector: 'app-root',  imports: [
+  selector: 'app-root',
+  imports: [
     RouterOutlet,
     TabBarComponent,
     HomeComponent,
